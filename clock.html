@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<!--from https://www.freecodecamp.org/news/svg-javascript-tutorial/  -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+		<title>CLOCK MODE</title>
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<!--
+  		<svg width="200" height="200" viewBox="-100 -100 200  200">
+			<circle
+				cx="0"
+				cy="0"
+				r="90"
+				fill="transparent"
+				stroke= "#0f0e0e"
+				stroke-width="7"
+				stroke-dasharray="0.2 0.8"
+				stroke-dashoffset="0.1"
+				pathLength="60"
+				/>
+				<circle
+				cx="0"
+				cy="0"
+				r="90"
+				fill="transparent"
+				stroke= "#f0f0c9"
+				stroke-width="7"
+				stroke-dasharray="0.2 4.8"
+				stroke-dashoffset="0.1"
+				pathLength="60"
+					/>
+		</svg>-->
+			<div>
+			<svg width="200" height="200" viewBox="-100 -100 200  200">
+			<circle
+				r="90"
+				class="minute_marker"
+				pathLength="60"
+				/>
+				<circle
+				class="hour_marker"
+				r="90"
+				pathLength="60"
+					/>
+					<g id ="hour_hand">
+				<line class="hand" x1="0" y1="0" x2="0" y2="-50"/>
+				<line class="hand hand--thick" x1="0" y1="-12" x2="0" y2="-50"/>
+					</g>
+					<g id="minute_hand">
+				<line class="hand" x1="0" y1="0" x2="0" y2="-80"/>
+				<line class="hand hand--thick" x1="0" y1="-12" x2="0" y2="-80"/>
+				</g>
+					<g id="second_hand">
+				<line class="hand hand--thick" x1="0" y1="12" x2="0" y2="-80"/>
+				</g>
+				</svg>
+  <script src="script.js"></script>
+</div>
+ <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
+</html>

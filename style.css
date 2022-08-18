@@ -1,0 +1,12 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+#svg-wrapper{
+	/*background-color: black;*/
+	
+}
+#svg-wrapper-duo{
+	/*background-color:firebrick;
+	border-radius:20px;*/
+}
