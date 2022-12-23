@@ -9,51 +9,96 @@
 </head>
 
 <body>
-	<div style="display: flex;flex-direction:column;">
+	<div class="title">
+		<h1>Random SVG Generator</h1>
+		<br>
+		<p>Work in progress, everything subject to change.</p></div>
+	<div class="main"">
+		
 		<div class="forma" id="selectionForm">
 			<!--<form>-->
-		<h1>Random SVG Generator</h1>
-		<p>Work in progress, everything subject to change.</p>
+		
 		<br>
-			<label for="colourSelectOne">Select a colour</label>
-			<input type="color" onchange="colourSelection(colorOne, 'colourSelectOne')" id="colourSelectOne" value="#000000">
-			<br>
-			<br>
-			<label for="colourSelectTwo">Select a colour</label>
-			<input type="color" onchange="colourSelection(colorTwo,'colourSelectTwo')" id="colourSelectTwo" value="#000000">
-			<br>
-		<label for="addEll">Add Ellipses To Shapes</label>
-		<label class="switch" for="addEll" onchange="addEllipses()" >
+			<label for="colourSelectOne">Fill Color</label>
+			<br><input type="color" onchange="colourSelectionOne()" id="colourSelectOne" value="#000000">
+			<br><label for="colourSelectTwo">Stroke Color</label>
+			<br><input type="color" onchange="colourSelectionTwo()" id="colourSelectTwo" value="#000000">
+			<br><label for="colourSelectOne">Background Color</label>
+			<br><input type="color" onchange="colourSelectionThree()" id="colourSelectThree" value="#000000">
+			<br><label for="colourSelectTwo">Lighting Color</label>
+			<br><input type="color" onchange="colourSelectionFour()" id="colourSelectFour" value="#000000">
+			<br><button onclick="setAllColorsRandom()">SET ALL COLORS TO RANDOM</button><br>
+		<br><label for="addEll">Set all colours to Random</label>
+		<br><label class="switch" for="addEll" onchange="setRandom()" >
 		<input type="checkbox" checked  id="addEll">
 		<span class="slider round"></span>
 		</label>
-		
-			
-		<br>
-		<label for="gridSize"> Choose a grid Size:</label>
-		<input type="range" min="1" max="50" step="1" id="gridSize">
-		<button onclick="gridSizer()">Submit</button>
-		<br>
-		<label for="widthSize"> Choose a Width Size:</label>
-		<input type="range"  min="50" max="2000" step="50" id="widthSize">
-		<button onclick="widthSizer()">Submit</button>
-		<br>
-		<label for="imageHeight"> Choose a Height Size:</label>
-		<input type="range"  min="10" max="2000" step="50"  id="imageHeight">
-		<button onclick="heightSizer()">Submit</button>
-		<br>
-		<label for="topIndex"> Choose a Index Size:</label>
-		<input type="range" min="1" max="100" step="1"   id="topIndex">
-		<button onclick="indexSizer()">Submit</button>
-		<br>
-				<!--<input type="reset">-->
-				<!--</form>-->
-		<button onclick="downloadSVG()">DOWNLOAD SVG</button>
-		<button onclick="svgEmbed()">NEW SVG</button>
-		<br>
+		<br><label for="filts">Turn On Filters</label>
+		<br><label class="switch" for="filts" onchange="filtering_switch()" >
+		<input type="checkbox" checked  id="filts">
+		<span class="slider round"></span>
+		</label>
+		<br><label for="wiggy">Add Wigl Element</label>
+		<br><label class="switch" for="wiggy" onchange="wigl_switch()" >
+		<input type="checkbox" checked  id="wiggy">
+		<span class="slider round"></span>
+		</label>
+		<br><label for="elps">Add Elipses Element</label>
+		<br><label class="switch" for="elps" onchange="elips_switch()" >
+		<input type="checkbox" checked  id="elps">
+		<span class="slider round"></span>
+		</label>
+		<br><label for="rects">Add Rectangle Element</label>
+		<br><label class="switch" for="rects" onchange="rectangle_switch()" >
+		<input type="checkbox" checked  id="rects">
+		<span class="slider round"></span>
+		</label>
+		<br><label for="gridSize"> Choose a grid Size:</label>
+		<br><input type="range" min="1" max="50" step="1" id="gridSize">
+		<br><button onclick="gridSizer()">Submit</button>
+		<br><label for="widthSize"> Choose a Width Size:</label>
+		<br><input type="range"  min="50" max="2000" step="50" id="widthSize">
+		<br><button onclick="widthSizer()">Submit</button>
+		<br><label for="imageHeight"> Choose a Height Size:</label>
+		<br><input type="range"  min="10" max="2000" step="50"  id="imageHeight">
+		<br><button onclick="heightSizer()">Submit</button>
+		<br><label for="topIndex"> Choose a Index Size:</label>
+		<br><input type="range" min="1" max="100" step="1"   id="topIndex">
+		<br><button onclick="indexSizer()">Submit</button>
+		<br><button onclick="viewValues()">Check Values</button>
+		<br><button onclick="downloadSVG()">DOWNLOAD SVG</button>
+		<br><button onclick="svgEmbed()">NEW SVG</button>
+		</div>
+			<div class="indices">
+			<div class="indicator" id="flView"></div>
+			<br>
+			<div class="indicator" id="strkView"></div>
+			<br>
+			<div class="indicator" id="cbackView"></div>
+			<br>
+			<div class="indicator" id="clightView"></div>
+			<br>
+			<div class="indicator" id="randView"></div>
+			<br>
+			<div class="indicator" id="wiggyView"></div>	
+			<br>
+			<div class="indicator" id="elpView"></div>
+			<br>
+			<div id="rectView" class="indicator"></div>
+			<br>
+			<div class="indicator" id="gridView"></div>
+			<br>
+			<div class="indicator" id="widthView"></div>
+			<br>
+			<div class="indicator" id="heightView"></div>
+			<br>
+			<div class="indicator" id="topIndexView"></div>
+			<br>
+			<div class="indicator" id="varValues"></div>
+			<br>
 		</div>
 		<div class="fenetre" id="something-completely-different">
-			<script src="random_paths.js"></script>
+			<script src="svg_custom.js"></script>
 		
 		</div>
 	</div>

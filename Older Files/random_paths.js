@@ -14,9 +14,9 @@ let colorOne=''
 let colorTwo=''
 function colourSelection(colour,identity){
 	colour=document.getElementById(`${identity}`).value;
-	console.log(colour);
-	document.getElementById('selectionForm').style.backgroundColor = colour
-	
+	console.log(`Color Set to :  ${colour}`)
+//	console.log(colour);
+//	document.getElementById('selectionForm').style.backgroundColor = colour	
 }
 function filetodatename(){
 	const currentDate= new Date();
@@ -61,10 +61,7 @@ function indexSizer(){
 	top_index_random=document.getElementById("topIndex").value;
 	console.log("TOP INDEX:	",top_index_random)
 }
-//function addEllipses(){
-//	console.log('WORKING');
-//	console.log(document.getElementById("randomRotation").value)
-//}
+
 addECounter=0
 function addEllipses(){
 	if(document.getElementById("addEll").value=="off"){
@@ -82,20 +79,13 @@ function addEllipses(){
 console.log(grid_size,image_width, image_width, top_index_random)
 function generateSvg() {
 	var svg = '';
-//	var image_width = 1500
-//	var image_height = 800
-						//Math.floor(Math.random()*((40-20 + 1) + 20));
-	//var top_index_random = 50  			//Math.floor(Math.random()*((100-50+1)+50))
-	//var grid_size = 30
-	//const newColour= "#" +Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');
-
 	for (var index_x = 0; index_x < top_index_random; index_x++) {
 		for (var index_y = 0; index_y < top_index_random; index_y++) {
 			var circle_radius = Math.floor(Math.random() * 60);
 			var ellipse_radius = Math.floor(Math.random() * 60);
-			var random_fill_color = randomColorRgba()
+			var random_fill_color = colorOne//randomColorRgba()
 			var random_stroke_width = Math.floor(Math.random() * 10);
-			var random_stroke_color = randomColorRgba();
+			var random_stroke_color = colorTwo//randomColorRgba();
 			var random_fill_opacity = (Math.random() * 0.99).toString()
 			var random_stroke_opacity = (Math.random() * 0.99).toString()
 			var degree_of_roation =0// Math.floor(Math.random() * 360).toString() // Can Set to Zero
