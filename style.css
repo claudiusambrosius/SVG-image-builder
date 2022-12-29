@@ -54,6 +54,8 @@ h1{
 	border-radius: 20px;
 	box-shadow: 5px 5px 5px #8ecae6;
 	font-size: x-large;
+	display: none;
+	
 	/*display: flex;
 	flex-direction:row;
 	flex-wrap: wrap;

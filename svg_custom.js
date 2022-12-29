@@ -16,26 +16,26 @@ let colorThree=randomColorRgba();
 let colorFour=randomColorRgba();
 function colourSelectionOne(){
 	colorOne=document.getElementById('colourSelectOne').value;	
-	viewValues();
+	value_update();
 }
 function colourSelectionTwo(){
 	colorTwo=document.getElementById('colourSelectTwo').value;
-	viewValues();
+	value_update();
 }
 function colourSelectionThree(){
 	colorThree=document.getElementById('colourSelectThree').value;
-	viewValues();
+	value_update();
 }
 function colourSelectionFour(){
 	colorFour=document.getElementById('colourSelectFour').value;
-	viewValues();
+	value_update();
 }
 function setAllColorsRandom(){
 	colorOne=randomColorRgba()
 	colorTwo=randomColorRgba()
 	colorThree=randomColorRgba()
 	colorFour=randomColorRgba()
-	viewValues();
+	value_update();
 }
 function filetodatename(){
 	const currentDate= new Date();
@@ -64,27 +64,27 @@ console.log(grid_size)
 function gridSizer(){
 	grid_size=document.getElementById("gridSize").value;
 	console.log("GRID SIZE:	",grid_size)
-	viewValues();
+	value_update();
 }
 var image_width = 500
 var image_height = 500
 function widthSizer(){
 	image_width=document.getElementById("widthSize").value;
 	console.log("IMAGEWIDTH:	",image_width)
-	viewValues();
+	value_update();
 }
 function heightSizer(){
 	image_height=document.getElementById("imageHeight").value;
 	console.log("IMAGE HEIGHT:	",image_height)
-	viewValues();
+	value_update();
 }
 var top_index_random = 35 
 function indexSizer(){
 	top_index_random=document.getElementById("topIndex").value;
 	console.log("TOP INDEX:	",top_index_random)
-	viewValues();
+	value_update();
 }
-let randomSwitch;
+let randomSwitch=0;
 function setRandom(){
 	if(document.getElementById("addEll").value=="off"){
 		document.getElementById("addEll").value="on";
@@ -97,7 +97,7 @@ function setRandom(){
 		randomSwitch=0;
 		console.log('Random Switch:		',randomSwitch);
 	}
-	viewValues();
+	value_update();
 }
 console.log(grid_size,image_width, image_width, top_index_random)
 let elements=[]
@@ -137,32 +137,59 @@ let star_point_four = (star_multiplier * 4) + (0 + star_translate)
 let star_point_one = (star_multiplier * 1) + (0 + star_translate)
 let star_point_zero = (star_multiplier * 0) + (0 + star_translate)
 let wiggle_line_multiplier = Math.floor(Math.random() * 10);*/
+function hideValues(){
+	document.getElementsByClassName('indices')[0].style.display='none'
+}
 function viewValues(){
 	let elementorum=document.getElementById('varValues')
 	elementorum.innerHTML=`Elements:\n ${elements}`
-	
-	document.getElementById('flView').innerHTML=`Fill Color: ${colorOne}`
-	document.getElementById('strkView').innerHTML=`Stroke Color: ${colorTwo}`
-	document.getElementById('cbackView').innerHTML=`Background Color: ${colorThree}`
-	document.getElementById('clightView').innerHTML=`Lighting Color: ${colorFour}`
-	//document.getElementById('randView').innerHTML=`Colors: \n Fill Color: ${colorOne}Stroke Color:  \n${colorTwo}\nBackground Color: ${colorThree}\nLighting Color: ${colorFour}`
-	document.getElementById('wiggyView').innerHTML=`Wiggle Lines Set To:	${document.getElementById("wiggy").value}`
-	document.getElementById('elpView').innerHTML=`Ellipses Set To:	${document.getElementById("elps").value}`
-	document.getElementById('rectView').innerHTML=`Rectangles Set To:	${document.getElementById("rects").value}`
-	document.getElementById('gridView').innerHTML=`Grid Size Set To:	${document.getElementById("gridSize").value}`
-	document.getElementById('widthView').innerHTML=`Width Set To:	${document.getElementById("widthSize").value}`
-	document.getElementById('heightView').innerHTML=`Height Set To:	${document.getElementById("imageHeight").value}`
-	document.getElementById('topIndexView').innerHTML=`Top Index Set To:	${document.getElementById("topIndex").value}`
+	document.getElementsByClassName('indices')[0].style.display='block';
+	document.getElementById('flView').innerHTML=`<p>Fill Color: ${colorOne}</p><br>`
+	document.getElementById('strkView').innerHTML=`<p>Stroke Color: ${colorTwo}</p><br>`
+	document.getElementById('cbackView').innerHTML=`<p>Background Color: ${colorThree}</p><br>`
+	document.getElementById('clightView').innerHTML=`<p>Lighting Color: ${colorFour}</p><br>`
+	document.getElementById('randView').innerHTML=`<p>Random Set to:   ${document.getElementById('addEll').value}</p><br>`
+	document.getElementById('fltrView').innerHTML=`<p>Filters Set to:  ${document.getElementById('filts').value}</p><br>`
+	document.getElementById('wiggyView').innerHTML=`<p>Wiggle Lines Set To:	${document.getElementById("wiggy").value}</p><br>`
+	document.getElementById('elpView').innerHTML=`<p>Ellipses Set To:	${document.getElementById("elps").value}</p><br>`
+	document.getElementById('rectView').innerHTML=`<p>Rectangles Set To:	${document.getElementById("rects").value}</p><br>`
+	document.getElementById('gridView').innerHTML=`<p>Grid Size Set To:	${document.getElementById("gridSize").value}</p><br>`
+	document.getElementById('widthView').innerHTML=`<p>Width Set To:	${document.getElementById("widthSize").value}</p><br>`
+	document.getElementById('heightView').innerHTML=`<p>Height Set To:	${document.getElementById("imageHeight").value}</p><br>`
+	document.getElementById('topIndexView').innerHTML=`<p>Top Index Set To:	${document.getElementById("topIndex").value}</p><br><br><br><br>`
 }
+function values_switch(){
+	if(document.getElementById("vals").value=="off"){
+		document.getElementById("vals").value="on";
+		hideValues();
+		//console.log('Random Switch:		',randomSwitch);
+		
+	}
+	else if (document.getElementById("vals").value=="on"){
+		document.getElementById("vals").value="off";
+		viewValues()
+		//console.log('Random Switch:		',randomSwitch);
+	}
+	//viewValues();
+}
+function value_update(){
+	if(document.getElementById("vals").value=="off"){
+		hideValues();
+	}
+	else if (document.getElementById("vals").value=="on"){
+		viewValues();
+	}
+}
+
 function add_element(element){
 	elements.push(element);
-	viewValues();
+	value_update();
 }
 function remove_element(element){
 	elements.pop(element);
-	viewValues();
+	value_update();
 }
-let wigSwitch;
+let wigSwitch=0;
 let wiggley= "Wiggley Line";
 function wiggle_line_creator(wiggleLineFactor, transformationProperty, strokeColor,strokeOpacity, strokeWidth){
 	return `<path d="M ${wiggleLineFactor * 0} ${wiggleLineFactor * 4} Q ${wiggleLineFactor * 0} ${wiggleLineFactor * -5} ${wiggleLineFactor * 1} ${wiggleLineFactor * 3} T ${wiggleLineFactor * 2} ${wiggleLineFactor * 2} ${wiggleLineFactor * 3} ${wiggleLineFactor * 3} T ${wiggleLineFactor * 4} ${wiggleLineFactor * 4} ${wiggleLineFactor * 5} ${wiggleLineFactor * 5} T ${wiggleLineFactor * 6} ${wiggleLineFactor * 6} ${wiggleLineFactor * 7} ${wiggleLineFactor * 7} T ${wiggleLineFactor * 8} ${wiggleLineFactor * 8} ${wiggleLineFactor * 9} ${wiggleLineFactor * 9}" fill="transparent" stroke="${strokeColor}" stroke-opacity="${strokeOpacity}"  stroke-width="${strokeWidth}" stroke-linecap="round" ${transformationProperty}"/>`
@@ -185,9 +212,9 @@ function wigl_switch(){
 		remove_element(wiggley);
 	}
 	console.log(elements)
-	viewValues();
+	value_update();
 }
-let elipSwitch;
+let elipSwitch =0;
 var elipsis='Elipsis';
 	
 function elipse_creator(xPlace, yPlace, circleRadius, elipsRadius, strokeColour, fillColour, strokeWidth, strokeOpacity, fillOpacity/*, transformProperty*/){
@@ -211,9 +238,9 @@ function elips_switch(){
 		remove_element(elipsis);
 	}
 	console.log(elements)
-	viewValues();
+	value_update();
 }
-let rectSwitch;
+let rectSwitch =0;
 let rectangle="Rectangle";
 function rectangle_creator(xPlace, yPlace, circleRadius, elipsRadius, strokeColour, fillColour, strokeWidth, strokeOpacity, fillOpacity/*, transformProperty*/){
 	//return `<ellipse cx="${xPlace} "cy="${yPlace}" rx="${circleRadius}" ry="${elipsRadius}" stroke="${strokeColour}" fill=" ${fillColour} " stroke-width="${strokeWidth}" stroke-opacity="${strokeOpacity}" fill-opacity="${fillOpacity}"  ${/*transformProperty*/' '} />`;
@@ -239,9 +266,9 @@ function rectangle_switch(){
 		remove_element(rectangle);
 	}
 	console.log(elements)
-	viewValues();
+	value_update();
 }
-let filterSwitch;
+let filterSwitch = 0;
 function filtering_switch(){
 	if(document.getElementById("filts").value=="off"){
 		document.getElementById("filts").value="on";
@@ -253,7 +280,7 @@ function filtering_switch(){
 		filterSwitch=0;
 		console.log('Filter Switch:	',filterSwitch);
 	}
-	viewValues();
+	value_update();
 }
 
 //let star_elem = `<path d="M ${star_point_two} ${star_point_zero} C ${star_point_two} ${star_point_one} ${star_point_one} ${star_point_two} ${star_point_zero} ${star_point_two} C ${star_point_one} ${star_point_two} ${star_point_two} ${star_point_three} ${star_point_two} ${star_point_four} C ${star_point_two} ${star_point_three} ${star_point_three} ${star_point_two} ${star_point_four} ${star_point_two} C ${star_point_three} ${star_point_two} ${star_point_two} ${star_point_one} ${star_point_two} ${star_point_zero} Z" fill="${random_fill_color}" stroke="${random_stroke_color}" stroke-opacity="${random_stroke_opacity}" fill-opacity= "${random_fill_opacity}" stroke-width="${random_stroke_width}" stroke-linejoin="round"  ${transformation} />`
@@ -270,7 +297,7 @@ function generateSvg() {
 	
 	for (var index_x = 0; index_x < top_index_random; index_x++) {
 		for (var index_y = 0; index_y < top_index_random; index_y++) {
-			if(randomSwitch==0){
+			if(randomSwitch==1){
 			setAllColorsRandom()
 			}/*
 			if(elements.includes(elipsis)){
@@ -358,8 +385,8 @@ function generateSvg() {
 			let element_added;
 			var random_elem = getRandomItem(elms)
 			var enclosed_elem = `<g filter="url(#fltr)"> ${random_elem} </g>`
-			if(filterSwitch ==0){element_added=random_elem;}
-			else if(filterSwitch==1){element_added=enclosed_elem;}
+			if(filterSwitch ==1){element_added=random_elem;}
+			else if(filterSwitch==0){element_added=enclosed_elem;}
 			svg += element_added //enclosed_elem
 
 

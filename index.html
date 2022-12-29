@@ -29,73 +29,67 @@
 			<br><input type="color" onchange="colourSelectionFour()" id="colourSelectFour" value="#000000">
 			<br><button onclick="setAllColorsRandom()">SET ALL COLORS TO RANDOM</button><br>
 		<br><label for="addEll">Set all colours to Random</label>
-		<br><label class="switch" for="addEll" onchange="setRandom()" >
-		<input type="checkbox" checked  id="addEll">
+		<br><label class="switch" for="addEll" value="off" onchange="setRandom()" >
+		<input type="checkbox" unchecked  value="off" id="addEll">
 		<span class="slider round"></span>
 		</label>
 		<br><label for="filts">Turn On Filters</label>
 		<br><label class="switch" for="filts" onchange="filtering_switch()" >
-		<input type="checkbox" checked  id="filts">
+		<input type="checkbox" unchecked  value="off" id="filts">
 		<span class="slider round"></span>
 		</label>
 		<br><label for="wiggy">Add Wigl Element</label>
 		<br><label class="switch" for="wiggy" onchange="wigl_switch()" >
-		<input type="checkbox" checked  id="wiggy">
+		<input type="checkbox" unchecked value="off"  id="wiggy">
 		<span class="slider round"></span>
 		</label>
 		<br><label for="elps">Add Elipses Element</label>
-		<br><label class="switch" for="elps" onchange="elips_switch()" >
-		<input type="checkbox" checked  id="elps">
+		<br><label class="switch" for="elps" value="off" onchange="elips_switch()" >
+		<input type="checkbox" value="off"  unchecked id="elps">
 		<span class="slider round"></span>
 		</label>
 		<br><label for="rects">Add Rectangle Element</label>
-		<br><label class="switch" for="rects" onchange="rectangle_switch()" >
-		<input type="checkbox" checked  id="rects">
+		<br><label class="switch" for="rects" value="off" onchange="rectangle_switch()" >
+		<input type="checkbox" value="off"  unchecked  id="rects">
 		<span class="slider round"></span>
 		</label>
 		<br><label for="gridSize"> Choose a grid Size:</label>
-		<br><input type="range" min="1" max="50" step="1" id="gridSize">
-		<br><button onclick="gridSizer()">Submit</button>
+		<br><input type="range" min="1" max="30" step="1" id="gridSize" onchange="gridSizer()">
+		<!--<br><button onclick="gridSizer()">Submit</button>-->
 		<br><label for="widthSize"> Choose a Width Size:</label>
-		<br><input type="range"  min="50" max="2000" step="50" id="widthSize">
-		<br><button onclick="widthSizer()">Submit</button>
+		<br><input type="range"  min="10" max="1000" step="50" id="widthSize" onchange="widthSizer()">
+		<!--<br><button onclick="widthSizer()">Submit</button>-->
 		<br><label for="imageHeight"> Choose a Height Size:</label>
-		<br><input type="range"  min="10" max="2000" step="50"  id="imageHeight">
-		<br><button onclick="heightSizer()">Submit</button>
+		<br><input type="range"  min="10" max="1000" step="50"  id="imageHeight" onchange="heightSizer()">
+		<!--<br><button onclick="heightSizer()">Submit</button>-->
 		<br><label for="topIndex"> Choose a Index Size:</label>
-		<br><input type="range" min="1" max="100" step="1"   id="topIndex">
-		<br><button onclick="indexSizer()">Submit</button>
+		<br><input type="range" min="1" max="30" step="1"   id="topIndex" onchange="indexSizer()">
+		<!--<br><button onclick="indexSizer()">Submit</button>-->
 		<br><button onclick="viewValues()">Check Values</button>
 		<br><button onclick="downloadSVG()">DOWNLOAD SVG</button>
 		<br><button onclick="svgEmbed()">NEW SVG</button>
+		<br><button onclick="hideValues()">HIDE DATA</button>
+		<br><label for="vals">Hide Data</label>
+		<br><label class="switch" for="vals"   >
+		<input type="checkbox" value="off"  unchecked  id="vals" onchange="values_switch()">
+		<span class="slider round"></span>
+		</label>
 		</div>
 			<div class="indices">
 			<div class="indicator" id="flView"></div>
-			<br>
 			<div class="indicator" id="strkView"></div>
-			<br>
 			<div class="indicator" id="cbackView"></div>
-			<br>
 			<div class="indicator" id="clightView"></div>
-			<br>
 			<div class="indicator" id="randView"></div>
-			<br>
+			<div class="indicator" id="fltrView"></div>
 			<div class="indicator" id="wiggyView"></div>	
-			<br>
 			<div class="indicator" id="elpView"></div>
-			<br>
 			<div id="rectView" class="indicator"></div>
-			<br>
 			<div class="indicator" id="gridView"></div>
-			<br>
 			<div class="indicator" id="widthView"></div>
-			<br>
 			<div class="indicator" id="heightView"></div>
-			<br>
 			<div class="indicator" id="topIndexView"></div>
-			<br>
 			<div class="indicator" id="varValues"></div>
-			<br>
 		</div>
 		<div class="fenetre" id="something-completely-different">
 			<script src="svg_custom.js"></script>
